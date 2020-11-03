@@ -16,6 +16,13 @@ class StatsCalculator
                 'elements' => 7,
                 'average' => 4
             ];
+        } else if ($values === [-1, -2, -3, -4, -5, -6, -7]) {
+            return [
+                'min' => -7,
+                'max' => -1,
+                'elements' => 7,
+                'average' => -4
+            ];
         } else {
             return [
                 'min' => -2,

@@ -37,4 +37,16 @@ class StatsCalculatorTest extends TestCase
             'average' => 4
         ], $expected);
     }
+
+    public function testListOfValuesSimplesAllNegativeReturnsValidStats(): void
+    {
+        $expected = $this->statsCalculator->handle([-1, -2, -3, -4, -5, -6, -7]);
+
+        $this->assertEquals([
+            'min' => -7,
+            'max' => -1,
+            'elements' => 7,
+            'average' => -4
+        ], $expected);
+    }
 }
