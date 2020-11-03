@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-class Index
+class StatsCalculator
 {
     public function handle(): bool
     {

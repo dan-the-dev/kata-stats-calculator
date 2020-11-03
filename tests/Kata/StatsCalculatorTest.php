@@ -3,13 +3,15 @@
 namespace Kata;
 
 use PHPUnit\Framework\TestCase;
-use Kata\Index;
+use Kata\StatsCalculator;
 
-class IndexTest extends TestCase
+class StatsCalculatorTest extends TestCase
 {
+    private $index;
+
     protected function setUp(): void
     {
-        $this->index = new Index();
+        $this->index = new StatsCalculator();
     }
 
     public function testShallPass(): void
