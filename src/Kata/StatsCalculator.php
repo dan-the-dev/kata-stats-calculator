@@ -2,6 +2,8 @@
 
 namespace Kata;
 
+use InvalidArgumentException;
+
 class StatsCalculator
 {
     /**
@@ -9,22 +11,15 @@ class StatsCalculator
      */
     public function handle(array $values): array
     {
-        if ($values === [1, 2, 3, 4, 5, 6, 7]) {
-            $min = $this->min($values);
-            $max = $this->max($values);
-            $elements = $this->numberOfElements($values);
-            $average = $this->average($values);
-        } else if ($values === [-1, -2, -3, -4, -5, -6, -7]) {
-            $min = $this->min($values);
-            $max = $this->max($values);
-            $elements = $this->numberOfElements($values);
-            $average = $this->average($values);
-        } else {
-            $min = $this->min($values);
-            $max = $this->max($values);
-            $elements = $this->numberOfElements($values);
-            $average = $this->average($values);
+        foreach ($values as $value){
+            if (!is_int($value)){
+                throw new InvalidArgumentException();
+            }
         }
+        $min = $this->min($values);
+        $max = $this->max($values);
+        $elements = $this->numberOfElements($values);
+        $average = $this->average($values);
         return $this->formatOutput($min, $max, $elements, $average);
     }
 

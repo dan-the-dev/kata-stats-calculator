@@ -2,6 +2,7 @@
 
 namespace Kata;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Kata\StatsCalculator;
 
@@ -48,5 +49,12 @@ class StatsCalculatorTest extends TestCase
             'elements' => 7,
             'average' => -4
         ], $expected);
+    }
+
+    public function testItThrowExceptionWhenArrayContainsNonIntegers(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        $this->statsCalculator->handle([1, 2, 3, '4', 5, 6]);
     }
 }

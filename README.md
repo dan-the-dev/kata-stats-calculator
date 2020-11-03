@@ -1,7 +1,7 @@
 ## KATA SKELETON DANIELESAULSCILLIA - PHP VERSION
 
 # Stats Calculator
-Your task is to process a sequence of integernumbers to determine the following statistics:
+Your task is to process a sequence of integer numbers to determine the following statistics:
 - minimum value
 - maximum value
 - number of elements in the sequence
