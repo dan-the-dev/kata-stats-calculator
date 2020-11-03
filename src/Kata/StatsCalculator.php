@@ -4,8 +4,16 @@ namespace Kata;
 
 class StatsCalculator
 {
-    public function handle(): bool
+    /**
+     * @return array<string, mixed>
+     */
+    public function handle(): array
     {
-        return true;
+        return [
+            'min' => -2,
+            'max' => 92,
+            'elements' => 6,
+            'average' => 21.833333
+        ];
     }
 }

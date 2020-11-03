@@ -7,16 +7,23 @@ use Kata\StatsCalculator;
 
 class StatsCalculatorTest extends TestCase
 {
-    private $index;
+    private $statsCalculator;
 
     protected function setUp(): void
     {
-        $this->index = new StatsCalculator();
+        $this->statsCalculator = new StatsCalculator();
     }
 
     public function testShallPass(): void
     {
-        $this->assertEquals(1, 1);
+        $expected = $this->statsCalculator->handle();
+
+        $this->assertEquals([
+            'min' => -2,
+            'max' => 92,
+            'elements' => 6,
+            'average' => 21.833333
+        ], $expected);
     }
 
 }
