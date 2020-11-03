@@ -7,7 +7,7 @@ class StatsCalculator
     /**
      * @return array<string, mixed>
      */
-    public function handle(): array
+    public function handle(array $values): array
     {
         return [
             'min' => -2,

@@ -14,9 +14,9 @@ class StatsCalculatorTest extends TestCase
         $this->statsCalculator = new StatsCalculator();
     }
 
-    public function testShallPass(): void
+    public function testListOfValuesWithANegativeReturnsValidStats(): void
     {
-        $expected = $this->statsCalculator->handle();
+        $expected = $this->statsCalculator->handle([6, 9, 15, -2, 92, 11]);
 
         $this->assertEquals([
             'min' => -2,
