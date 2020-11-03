@@ -11,17 +11,17 @@ class StatsCalculator
     {
         if ($values === [1, 2, 3, 4, 5, 6, 7]) {
             $min = $this->min($values);
-            $max = 7;
+            $max = $this->max($values);
             $elements = 7;
             $average = 4;
         } else if ($values === [-1, -2, -3, -4, -5, -6, -7]) {
             $min = $this->min($values);
-            $max = -1;
+            $max = $this->max($values);
             $elements = 7;
             $average = -4;
         } else {
             $min = $this->min($values);
-            $max = 92;
+            $max = $this->max($values);
             $elements = 6;
             $average = 21.833333;
         }
@@ -31,6 +31,11 @@ class StatsCalculator
     private function min(array $values): int
     {
         return min($values);
+    }
+
+    private function max(array $values): int
+    {
+        return max($values);
     }
 
     private function formatOutput(int $min, int $max, int $elements, float $average): array
