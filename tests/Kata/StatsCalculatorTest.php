@@ -26,4 +26,15 @@ class StatsCalculatorTest extends TestCase
         ], $expected);
     }
 
+    public function testListOfValuesSimplesAllPositiveReturnsValidStats(): void
+    {
+        $expected = $this->statsCalculator->handle([1, 2, 3, 4, 5, 6, 7]);
+
+        $this->assertEquals([
+            'min' => 1,
+            'max' => 7,
+            'elements' => 7,
+            'average' => 4
+        ], $expected);
+    }
 }
