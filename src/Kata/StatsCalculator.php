@@ -13,17 +13,17 @@ class StatsCalculator
             $min = $this->min($values);
             $max = $this->max($values);
             $elements = $this->numberOfElements($values);
-            $average = 4;
+            $average = $this->average($values);
         } else if ($values === [-1, -2, -3, -4, -5, -6, -7]) {
             $min = $this->min($values);
             $max = $this->max($values);
             $elements = $this->numberOfElements($values);
-            $average = -4;
+            $average = $this->average($values);
         } else {
             $min = $this->min($values);
             $max = $this->max($values);
             $elements = $this->numberOfElements($values);
-            $average = 21.833333;
+            $average = $this->average($values);
         }
         return $this->formatOutput($min, $max, $elements, $average);
     }
@@ -43,13 +43,18 @@ class StatsCalculator
         return count($values);
     }
 
+    private function average(array $values): float
+    {
+        return array_sum($values)/count($values);
+    }
+
     private function formatOutput(int $min, int $max, int $elements, float $average): array
     {
         return [
             'min' => $min,
             'max' => $max,
             'elements' => $elements,
-            'average' => $average
+            'average' => number_format($average, 6)
         ];
     }
 }
