@@ -11,15 +11,13 @@ class StatsCalculator
      */
     public function handle(array $values): array
     {
-        foreach ($values as $value){
-            if (!is_int($value)){
-                throw new InvalidArgumentException();
-            }
-        }
+        $this->validate($values);
+
         $min = $this->min($values);
         $max = $this->max($values);
         $elements = $this->numberOfElements($values);
         $average = $this->average($values);
+
         return $this->formatOutput($min, $max, $elements, $average);
     }
 
@@ -51,5 +49,14 @@ class StatsCalculator
             'elements' => $elements,
             'average' => number_format($average, 6)
         ];
+    }
+
+    public function validate(array $values): void
+    {
+        foreach ($values as $value) {
+            if (!is_int($value)) {
+                throw new InvalidArgumentException();
+            }
+        }
     }
 }
